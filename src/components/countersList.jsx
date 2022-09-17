@@ -23,32 +23,15 @@ const CountersList = () => {
         setCounters(initialState);
     }
 
-    const handleIncrement = (value) => {
-        console.log('increment', value)
-        // const increment  = counters.map((count) => count.value = count.value + 1)
-        const increment  = counters.
-        console.log(increment);
+    const handleIncrement = (id) => {
+        const increment  = prev => prev.map((el) => el.id === id ? {...el, value: el.value + 1} : el)
         setCounters(increment);
     }
 
-    const handleDecrement = (value) => {
-        console.log('decrement', value)
-        const decrement = counters.map((count) => count.value - 1);
-        // const decrement = counters.value = value - 1
+    const handleDecrement = (id) => {
+        const decrement = prev => prev.map((el) => el.id === id ? {...el, value: el.value - 1} : el);
         setCounters(decrement)
     }
-
-
-    // const handleUpdate = () => {
-    //     const updatedState = [
-    //         {id: 0, value: 1, name: "Ненужная вещь"},
-    //         {id: 1, value: 2, name: "Ложка"},
-    //         {id: 2, value: 3, name: "Вилка"},
-    //         {id: 3, value: 4, name: "Тарелка"},
-    //         {id: 4, value: 0, name: "Набор минималиста"},
-    //     ];
-    //     setCounters(updatedState);
-    // }
 
     return (
         <>
@@ -67,12 +50,6 @@ const CountersList = () => {
             >
                 Сброс
             </button>
-            {/*<button*/}
-            {/*    className="btn btn-primary btn-sm m-2"*/}
-            {/*    onClick={handleUpdate}*/}
-            {/*>*/}
-            {/*    Обновить состояние*/}
-            {/*</button>*/}
         </>
     );
 };

@@ -14,32 +14,19 @@ const Counter = (props) => {
         return classes
     }
 
-    const handleIncrement = () => {
-        // setValue((prevState) => prevState + 1);
-        console.log('increment counter', value)
-    }
-    //
-    // const handleDecrement = () => {
-    //     // setValue((prevState) => prevState - 1);
-    //     console.log('decrement', value);
-    // }
-
-
-
     return (
         <div>
             <span>{props.name}</span>
             <span className={getBadgeClasses()}>{formatValue()}</span>
             <button
                 className='btn btn-primary btn-sm m-2'
-                onClick={() => props.onIncrement(props.value)}
-                // onClick={handleIncrement}
+                onClick={() => props.onIncrement(props.id)}
             >
                 +
             </button>
             <button
                 className='btn btn-primary btn-sm m-2'
-                onClick={() => props.onDecrement(props.value)}
+                onClick={() => props.onDecrement(props.id)}
             >
                 -
             </button>
